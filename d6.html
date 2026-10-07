@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>BounceRush Arena</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/dashboard.js" defer></script>
+</head>
+
+<body class="dashboard-body">
+    <div class="dashboard-shell">
+        <div class="sidebar-scrim" id="sidebar-scrim" aria-hidden="true"></div>
+        <aside class="dashboard-sidebar" id="dashboard-sidebar" aria-label="Dashboard navigation">
+            <a class="dashboard-logo" href="index.html" aria-label="BounceRush Arena home"><img src="images/logo.png"
+                    alt="BounceRush Arena"></a>
+            <nav class="sidebar-nav" aria-label="Player menu">
+                <a class="sidebar-link" href="dashboard.html" aria-current="page"><i
+                        class="fa-solid fa-house"></i><span>Dashboard</span></a>
+                <a class="sidebar-link" href="d2.html"><i class="fa-solid fa-calendar-check"></i><span>My
+                        Bookings</span></a>
+                <a class="sidebar-link" href="d3.html"><i class="fa-solid fa-ticket"></i><span>Book a Session</span></a>
+                <a class="sidebar-link" href="d4.html"><i class="fa-solid fa-layer-group"></i><span>My Passes</span></a>
+                <a class="sidebar-link" href="d5.html"><i class="fa-solid fa-users"></i><span>Group Bookings</span></a>
+                <a class="sidebar-link is-active" href="d6.html"><i class="fa-solid fa-credit-card"></i><span>Payments
+                        &amp;
+                        Receipts</span></a>
+                <a class="sidebar-link" href="d7.html"><i class="fa-solid fa-clock-rotate-left"></i><span>Activity
+                        History</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="sidebar-link logout-link" type="button" data-logout><i
+                        class="fa-solid fa-right-from-bracket"></i><span>Logout</span></button>
+            </div>
+        </aside>
+
+        <header class="dashboard-header">
+            <div class="header-title-group">
+                <button class="icon-button mobile-menu-toggle" type="button" id="menu-toggle" aria-label="Open menu"
+                    aria-expanded="false" aria-controls="dashboard-sidebar"><i class="fa-solid fa-bars"></i></button>
+                <h1>Payments</h1>
+            </div>
+            <div class="header-controls">
+                <div class="control-wrap">
+                    <button class="icon-button notification-button" type="button" data-menu-toggle="notifications"
+                        aria-label="Notifications, 3 unread" aria-expanded="false"><i
+                            class="fa-regular fa-bell"></i><span class="notification-badge">3</span></button>
+                    <section class="popover notification-popover" data-popover="notifications"
+                        aria-label="Notifications" hidden>
+                        <h2>Notifications</h2>
+                        <p><i class="fa-solid fa-calendar-check"></i><span>Your upcoming session is tomorrow.</span></p>
+                        <p><i class="fa-solid fa-layer-group"></i><span>Your 5-session pass has 2 sessions
+                                remaining.</span></p>
+                        <p><i class="fa-solid fa-credit-card"></i><span>Your booking payment was successful.</span></p>
+                    </section>
+                </div>
+                <div class="control-wrap desktop-control">
+                    <button class="icon-button" type="button" data-menu-toggle="settings" aria-label="Settings"
+                        aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
+                    <section class="popover compact-popover" data-popover="settings" aria-label="Settings" hidden>
+                        <a href="#account-settings">Account Settings</a><a href="#preferences">Preferences</a><a
+                            href="#privacy">Privacy</a>
+                    </section>
+                </div>
+                <button class="icon-button desktop-control theme-toggle" type="button"
+                    aria-label="Switch to dark mode"><i class="fa-solid fa-moon"></i></button>
+                <button class="icon-button desktop-control rtl-toggle" type="button" aria-label="Switch to RTL mode"><i
+                        class="fa-solid fa-arrow-right-arrow-left"></i></button>
+                <div class="profile-button" aria-label="Player profile">
+                    <img class="avatar"
+                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;crop=faces&amp;w=128&amp;h=128&amp;q=80"
+                        alt="John Player profile photo">
+                    <span class="profile-copy"><strong>John Thomsan</strong><small>Player</small></span>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard-main" id="main-content" tabindex="-1">
+            <div class="dash-page ledger-page" id="payments-app">
+                <section class="ledger-section">
+                    <div class="product-heading">
+                        <div><span class="eyebrow">YOUR ACCOUNT AT A GLANCE</span>
+                            <h2>Payment Overview</h2>
+                            <p>Track your payments, spending and recent transactions in one place.</p>
+                        </div>
+                    </div>
+                    <div class="payment-stats"><button class="payment-stat is-selected" type="button"
+                            data-payment-filter="all"><span class="stat-icon"><i
+                                    class="fa-solid fa-wallet"></i></span><small>Total
+                                Spent</small><strong>₹8,450</strong><em>Across all sessions</em></button><button
+                            class="payment-stat" type="button" data-payment-filter="successful"><span
+                                class="stat-icon"><i class="fa-solid fa-circle-check"></i></span><small>Successful
+                                Payments</small><strong>9</strong><em>Payments complete</em></button><button
+                            class="payment-stat" type="button" data-payment-filter="pending"><span class="stat-icon"><i
+                                    class="fa-regular fa-clock"></i></span><small>Pending
+                                Payments</small><strong>1</strong><em>Awaiting confirmation</em></button><button
+                            class="payment-stat" type="button" data-payment-filter="refunded"><span class="stat-icon"><i
+                                    class="fa-solid fa-arrow-rotate-left"></i></span><small>Refunds</small><strong>₹499</strong><em>Refunded
+                                to your card</em></button></div>
+                    <article class="spending-card">
+                        <div><span class="eyebrow">SPENDING SNAPSHOT</span>
+                            <h3>This Month</h3><strong>₹1,498 spent</strong><small>Compared with previous month</small>
+                        </div>
+                        <div class="spending-bars">
+                            <div><span>This Month</span><i><b style="width:68%"></b></i><strong>₹1,498</strong></div>
+                            <div><span>Previous Month</span><i><b style="width:48%"></b></i><strong>₹1,056</strong>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section class="ledger-section">
+                    <div class="product-heading">
+                        <div><span class="eyebrow">YOUR TRANSACTIONS</span>
+                            <h2>Transaction History</h2>
+                        </div>
+                        <div class="ledger-tools"><label class="search-control"><i
+                                    class="fa-solid fa-magnifying-glass"></i><input id="payment-search" type="search"
+                                    placeholder="Search transaction..." aria-label="Search transaction"></label><label
+                                class="ledger-date"><span>Date</span><input id="payment-date" type="date"
+                                    aria-label="Filter transactions by date"></label><label
+                                class="sort-control"><span>Sort</span><select id="payment-sort">
+                                    <option value="newest">Newest</option>
+                                    <option value="oldest">Oldest</option>
+                                    <option value="high">Amount high</option>
+                                    <option value="low">Amount low</option>
+                                </select></label></div>
+                    </div>
+                    <div class="filter-row" role="group" aria-label="Transaction status"><button type="button"
+                            class="filter-chip is-active" data-tx-filter="all">All</button><button type="button"
+                            class="filter-chip" data-tx-filter="successful">Successful</button><button type="button"
+                            class="filter-chip" data-tx-filter="pending">Pending</button><button type="button"
+                            class="filter-chip" data-tx-filter="refunded">Refunded</button></div>
+                    <div class="transaction-table-wrap">
+                        <table class="transaction-table">
+                            <thead>
+                                <tr>
+                                    <th>Transaction</th>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Method</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transaction-list"></tbody>
+                        </table>
+                    </div>
+                    <p class="empty-state" id="transaction-empty" hidden>No transactions found.</p>
+                </section>
+                <section class="ledger-section">
+                    <div class="payment-bottom-grid">
+                        <article class="payment-methods">
+                            <div class="product-heading">
+                                <div><span class="eyebrow">YOUR PREFERENCES</span>
+                                    <h2>Saved Payment Methods</h2>
+                                </div>
+                            </div>
+                            <div id="payment-method-list"></div><button class="button-outline" type="button"
+                                id="add-payment-method"><i class="fa-solid fa-plus"></i> Add Payment Method</button>
+                        </article>
+                        <article class="receipt-panel">
+                            <div class="product-heading">
+                                <div><span class="eyebrow">YOUR RECORDS</span>
+                                    <h2>Recent Receipts</h2>
+                                </div>
+                            </div>
+                            <div id="receipt-list"></div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-overlay" id="payment-modal" hidden>
+                <section class="content-modal" role="dialog" aria-modal="true" aria-labelledby="payment-modal-title">
+                    <button class="modal-close" type="button" data-modal-close aria-label="Close"><i
+                            class="fa-solid fa-xmark"></i></button>
+                    <div id="payment-modal-content"></div>
+                </section>
+            </div>
+        </main>
+        <div class="confirm-overlay" id="logout-confirm" hidden>
+            <section class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="logout-title"
+                aria-describedby="logout-message">
+                <span class="confirm-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                <h2 id="logout-title">Log out?</h2>
+                <p id="logout-message">Are you sure you want to log out of your account?</p>
+                <div class="confirm-actions">
+                    <button class="confirm-cancel" type="button" data-cancel-logout>No</button>
+                    <button class="confirm-accept" type="button" data-confirm-logout>Yes, log out</button>
+                </div>
+            </section>
+        </div>
+        <div class="dashboard-toast" id="dashboard-toast" role="status" aria-live="polite"></div>
+    </div>
+</body>
+
+</html>

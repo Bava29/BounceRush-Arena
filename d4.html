@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>BounceRush Arena</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/dashboard.js" defer></script>
+</head>
+
+<body class="dashboard-body">
+    <div class="dashboard-shell">
+        <div class="sidebar-scrim" id="sidebar-scrim" aria-hidden="true"></div>
+        <aside class="dashboard-sidebar" id="dashboard-sidebar" aria-label="Dashboard navigation">
+            <a class="dashboard-logo" href="index.html" aria-label="BounceRush Arena home"><img src="images/logo.png"
+                    alt="BounceRush Arena"></a>
+            <nav class="sidebar-nav" aria-label="Player menu">
+                <a class="sidebar-link" href="dashboard.html" aria-current="page"><i
+                        class="fa-solid fa-house"></i><span>Dashboard</span></a>
+                <a class="sidebar-link" href="d2.html"><i class="fa-solid fa-calendar-check"></i><span>My
+                        Bookings</span></a>
+                <a class="sidebar-link" href="d3.html"><i class="fa-solid fa-ticket"></i><span>Book a Session</span></a>
+                <a class="sidebar-link is-active" href="d4.html"><i class="fa-solid fa-layer-group"></i><span>My
+                        Passes</span></a>
+                <a class="sidebar-link" href="d5.html"><i class="fa-solid fa-users"></i><span>Group Bookings</span></a>
+                <a class="sidebar-link" href="d6.html"><i class="fa-solid fa-credit-card"></i><span>Payments &amp;
+                        Receipts</span></a>
+                <a class="sidebar-link" href="d7.html"><i class="fa-solid fa-clock-rotate-left"></i><span>Activity
+                        History</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="sidebar-link logout-link" type="button" data-logout><i
+                        class="fa-solid fa-right-from-bracket"></i><span>Logout</span></button>
+            </div>
+        </aside>
+
+        <header class="dashboard-header">
+            <div class="header-title-group">
+                <button class="icon-button mobile-menu-toggle" type="button" id="menu-toggle" aria-label="Open menu"
+                    aria-expanded="false" aria-controls="dashboard-sidebar"><i class="fa-solid fa-bars"></i></button>
+                <h1>Passes</h1>
+            </div>
+            <div class="header-controls">
+                <div class="control-wrap">
+                    <button class="icon-button notification-button" type="button" data-menu-toggle="notifications"
+                        aria-label="Notifications, 3 unread" aria-expanded="false"><i
+                            class="fa-regular fa-bell"></i><span class="notification-badge">3</span></button>
+                    <section class="popover notification-popover" data-popover="notifications"
+                        aria-label="Notifications" hidden>
+                        <h2>Notifications</h2>
+                        <p><i class="fa-solid fa-calendar-check"></i><span>Your upcoming session is tomorrow.</span></p>
+                        <p><i class="fa-solid fa-layer-group"></i><span>Your 5-session pass has 2 sessions
+                                remaining.</span></p>
+                        <p><i class="fa-solid fa-credit-card"></i><span>Your booking payment was successful.</span></p>
+                    </section>
+                </div>
+                <div class="control-wrap desktop-control">
+                    <button class="icon-button" type="button" data-menu-toggle="settings" aria-label="Settings"
+                        aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
+                    <section class="popover compact-popover" data-popover="settings" aria-label="Settings" hidden>
+                        <a href="#account-settings">Account Settings</a><a href="#preferences">Preferences</a><a
+                            href="#privacy">Privacy</a>
+                    </section>
+                </div>
+                <button class="icon-button desktop-control theme-toggle" type="button"
+                    aria-label="Switch to dark mode"><i class="fa-solid fa-moon"></i></button>
+                <button class="icon-button desktop-control rtl-toggle" type="button" aria-label="Switch to RTL mode"><i
+                        class="fa-solid fa-arrow-right-arrow-left"></i></button>
+                <div class="profile-button" aria-label="Player profile">
+                    <img class="avatar"
+                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;crop=faces&amp;w=128&amp;h=128&amp;q=80"
+                        alt="John Player profile photo">
+                    <span class="profile-copy"><strong>John Thomsan</strong><small>Player</small></span>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard-main" id="main-content" tabindex="-1">
+            <div class="dash-page product-page" id="passes-app">
+                <section class="product-section">
+                    <div class="product-heading">
+                        <div><span class="eyebrow">YOUR PASS, YOUR PACE</span>
+                            <h2>My Passes</h2>
+                            <p>Manage your active passes, remaining sessions and pass benefits.</p>
+                        </div>
+                    </div>
+                    <div class="pass-summary-cards">
+                        <article><span class="stat-icon"><i class="fa-solid fa-ticket"></i></span><span>Active
+                                Pass</span><strong>5 Session Pass</strong><small>2 Sessions Remaining</small></article>
+                        <article><span class="stat-icon"><i class="fa-solid fa-chart-simple"></i></span><span>Sessions
+                                Used</span><strong>3 Sessions Used</strong>
+                            <div class="mini-progress"><i></i></div>
+                        </article>
+                        <article><span class="stat-icon"><i class="fa-solid fa-circle-check"></i></span><span>Pass
+                                Status</span><strong>Active</strong><small>Valid Until: December 20, 2026</small>
+                        </article>
+                    </div>
+                    <article class="active-pass-card">
+                        <div class="pass-art"><span class="pass-tag">ACTIVE PASS</span><i
+                                class="fa-solid fa-bolt"></i><strong>BOUNCERUSH<br>ARENA</strong><small>PLAYER SESSION
+                                PASS</small></div>
+                        <div class="active-pass-copy"><span class="eyebrow">YOUR CURRENT PASS</span>
+                            <h3>5-Session Bounce Pass</h3>
+                            <p>Three arena adventures down. Two more are ready when you are.</p>
+                            <div class="pass-usage"><strong>3 / 5 Sessions Used</strong><span>2 Sessions
+                                    Remaining</span></div>
+                            <div class="progress-track" role="progressbar" aria-label="Sessions used" aria-valuemin="0"
+                                aria-valuemax="5" aria-valuenow="3"><span></span></div>
+                            <div class="pass-dates"><span>Valid until <strong>December 20,
+                                        2026</strong></span><span>Purchased <strong>September 20, 2026</strong></span>
+                            </div>
+                            <div class="pass-actions"><button class="button-primary" type="button" data-use-pass>Use
+                                    This Pass</button><button class="button-outline" type="button"
+                                    data-pass-details>View Pass Details</button></div>
+                        </div>
+                    </article>
+                </section>
+                <section class="product-section">
+                    <div class="product-heading">
+                        <div><span class="eyebrow">MORE PLAY, BETTER VALUE</span>
+                            <h2>Choose a Pass</h2>
+                            <p>Find a pass that fits the way you like to play.</p>
+                        </div>
+                    </div>
+                    <div class="pricing-cards">
+                        <article class="pricing-card" data-pass-card="Single Session"><span class="eyebrow">FLEXIBLE
+                                FUN</span>
+                            <h3>Single Session</h3><strong class="price">₹499</strong><span class="session-count">1
+                                Session</span>
+                            <ul>
+                                <li>Great for a first visit</li>
+                                <li>Choose your activity</li>
+                                <li>Easy online booking</li>
+                            </ul><button class="button-outline" type="button" data-buy-pass="Single Session">Buy Pass <i
+                                    class="fa-solid fa-arrow-right"></i></button>
+                        </article>
+                        <article class="pricing-card recommended" data-pass-card="5 Session Pass"><span
+                                class="recommended-tag">RECOMMENDED</span><span class="eyebrow">FAN FAVORITE</span>
+                            <h3>5 Session Pass</h3><strong class="price">₹1,999</strong><span class="session-count">5
+                                Sessions</span>
+                            <ul>
+                                <li>Save more on repeated visits</li>
+                                <li>Flexible session booking</li>
+                                <li>Sessions for your crew</li>
+                            </ul><button class="button-primary" type="button" data-buy-pass="5 Session Pass">Buy Pass <i
+                                    class="fa-solid fa-arrow-right"></i></button>
+                        </article>
+                        <article class="pricing-card" data-pass-card="10 Session Pass"><span class="eyebrow">THE BEST
+                                VALUE</span>
+                            <h3>10 Session Pass</h3><strong class="price">₹3,499</strong><span class="session-count">10
+                                Sessions</span>
+                            <ul>
+                                <li>Best value per session</li>
+                                <li>Bring friends along</li>
+                                <li>More arena memories</li>
+                            </ul><button class="button-outline" type="button" data-buy-pass="10 Session Pass">Buy Pass
+                                <i class="fa-solid fa-arrow-right"></i></button>
+                        </article>
+                    </div>
+                </section>
+                <section class="product-section">
+                    <div class="history-benefits-grid">
+                        <article class="pass-history-area">
+                            <div class="product-heading">
+                                <div><span class="eyebrow">YOUR PASS JOURNEY</span>
+                                    <h2>Pass History</h2>
+                                </div>
+                            </div>
+                            <div class="filter-row" role="group" aria-label="Filter pass history"><button
+                                    class="filter-chip is-active" data-pass-filter="all"
+                                    type="button">All</button><button class="filter-chip" data-pass-filter="active"
+                                    type="button">Active</button><button class="filter-chip" data-pass-filter="expired"
+                                    type="button">Expired</button></div>
+                            <div class="pass-history-list" id="pass-history-list"></div>
+                        </article>
+                        <article class="benefits-area"><span class="eyebrow">WHY PASS HOLDERS LOVE IT</span>
+                            <h2>Pass Benefits</h2>
+                            <div class="benefit-list">
+                                <p><i class="fa-solid fa-check"></i> Flexible session booking</p>
+                                <p><i class="fa-solid fa-check"></i> Lower per-session cost</p>
+                                <p><i class="fa-solid fa-check"></i> Easy booking management</p>
+                                <p><i class="fa-solid fa-check"></i> Priority access to selected sessions</p>
+                            </div><a href="d3.html" class="button-primary">Book With Pass <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </article>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-overlay" id="passes-modal" hidden>
+                <section class="content-modal" role="dialog" aria-modal="true" aria-labelledby="passes-modal-title">
+                    <button class="modal-close" type="button" data-modal-close aria-label="Close"><i
+                            class="fa-solid fa-xmark"></i></button>
+                    <div id="passes-modal-content"></div>
+                </section>
+            </div>
+        </main>
+        <div class="confirm-overlay" id="logout-confirm" hidden>
+            <section class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="logout-title"
+                aria-describedby="logout-message">
+                <span class="confirm-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                <h2 id="logout-title">Log out?</h2>
+                <p id="logout-message">Are you sure you want to log out of your account?</p>
+                <div class="confirm-actions">
+                    <button class="confirm-cancel" type="button" data-cancel-logout>No</button>
+                    <button class="confirm-accept" type="button" data-confirm-logout>Yes, log out</button>
+                </div>
+            </section>
+        </div>
+        <div class="dashboard-toast" id="dashboard-toast" role="status" aria-live="polite"></div>
+    </div>
+</body>
+
+</html>

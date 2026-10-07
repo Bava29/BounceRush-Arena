@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>BounceRush Arena</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script src="js/dashboard.js" defer></script>
+</head>
+
+<body class="dashboard-body">
+  <div class="dashboard-shell">
+    <div class="sidebar-scrim" id="sidebar-scrim" aria-hidden="true"></div>
+    <aside class="dashboard-sidebar" id="dashboard-sidebar" aria-label="Dashboard navigation">
+      <a class="dashboard-logo" href="index.html" aria-label="BounceRush Arena home"><img src="images/logo.png"
+          alt="BounceRush Arena"></a>
+      <nav class="sidebar-nav" aria-label="Player menu">
+        <a class="sidebar-link is-active" href="dashboard.html" aria-current="page"><i
+            class="fa-solid fa-house"></i><span>Dashboard</span></a>
+        <a class="sidebar-link" href="d2.html"><i class="fa-solid fa-calendar-check"></i><span>My Bookings</span></a>
+        <a class="sidebar-link" href="d3.html"><i class="fa-solid fa-ticket"></i><span>Book a Session</span></a>
+        <a class="sidebar-link" href="d4.html"><i class="fa-solid fa-layer-group"></i><span>My Passes</span></a>
+        <a class="sidebar-link" href="d5.html"><i class="fa-solid fa-users"></i><span>Group Bookings</span></a>
+        <a class="sidebar-link" href="d6.html"><i class="fa-solid fa-credit-card"></i><span>Payments &amp;
+            Receipts</span></a>
+        <a class="sidebar-link" href="d7.html"><i class="fa-solid fa-clock-rotate-left"></i><span>Activity
+            History</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="sidebar-link logout-link" type="button" data-logout><i
+            class="fa-solid fa-right-from-bracket"></i><span>Logout</span></button>
+      </div>
+    </aside>
+
+    <header class="dashboard-header">
+      <div class="header-title-group">
+        <button class="icon-button mobile-menu-toggle" type="button" id="menu-toggle" aria-label="Open menu"
+          aria-expanded="false" aria-controls="dashboard-sidebar"><i class="fa-solid fa-bars"></i></button>
+        <h1>Dashboard</h1>
+      </div>
+      <div class="header-controls">
+        <div class="control-wrap">
+          <button class="icon-button notification-button" type="button" data-menu-toggle="notifications"
+            aria-label="Notifications, 3 unread" aria-expanded="false"><i class="fa-regular fa-bell"></i><span
+              class="notification-badge">3</span></button>
+          <section class="popover notification-popover" data-popover="notifications" aria-label="Notifications" hidden>
+            <h2>Notifications</h2>
+            <p><i class="fa-solid fa-calendar-check"></i><span>Your upcoming session is tomorrow.</span></p>
+            <p><i class="fa-solid fa-layer-group"></i><span>Your 5-session pass has 2 sessions remaining.</span></p>
+            <p><i class="fa-solid fa-credit-card"></i><span>Your booking payment was successful.</span></p>
+          </section>
+        </div>
+        <div class="control-wrap desktop-control">
+          <button class="icon-button" type="button" data-menu-toggle="settings" aria-label="Settings"
+            aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
+          <section class="popover compact-popover" data-popover="settings" aria-label="Settings" hidden>
+            <a href="#account-settings">Account Settings</a><a href="#preferences">Preferences</a><a
+              href="#privacy">Privacy</a>
+          </section>
+        </div>
+        <button class="icon-button desktop-control theme-toggle" type="button" aria-label="Switch to dark mode"><i
+            class="fa-solid fa-moon"></i></button>
+        <button class="icon-button desktop-control rtl-toggle" type="button" aria-label="Switch to RTL mode"><i
+            class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <div class="profile-button" aria-label="Player profile">
+          <img class="avatar"
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;crop=faces&amp;w=128&amp;h=128&amp;q=80"
+            alt="John Player profile photo">
+          <span class="profile-copy"><strong>John Thomsan</strong><small>Player</small></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard-main" id="main-content" tabindex="-1">
+      <div class="dash-page" id="player-dashboard">
+        <section class="welcome-panel welcome-hero">
+          <div class="welcome-copy"><span class="eyebrow">YOUR ARENA, YOUR MOMENT</span>
+            <h2>Welcome back, John!</h2>
+            <p>Ready for your next BounceRush adventure?</p>
+            <div class="welcome-actions"><a class="button-primary" href="d3.html">Book Another Session <i
+                  class="fa-solid fa-arrow-right"></i></a><button class="button-link" type="button"
+                data-booking-open>View Booking</button></div>
+          </div>
+          <button class="next-session" type="button" data-booking-open
+            aria-label="View tomorrow's Bubble Football session">
+            <span class="next-label"><i class="fa-regular fa-calendar-check"></i> NEXT SESSION <i
+                class="fa-solid fa-arrow-up-right-from-square"></i></span><strong>Bubble Football</strong><span
+              class="next-details"><span><i class="fa-regular fa-clock"></i> Tomorrow, 6:00 PM</span><span><i
+                  class="fa-solid fa-users"></i> 8 Players</span></span><span class="confirmed-pill"><i
+                class="fa-solid fa-circle-check"></i> Confirmed</span>
+          </button>
+        </section>
+        <section class="dashboard-section" aria-label="Player stats and active pass">
+          <div class="section-heading">
+            <div><span class="eyebrow">YOUR PROGRESS</span>
+              <h2>Player overview</h2>
+            </div><a class="subtle-link" href="d4.html">View passes <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <div class="overview-grid">
+            <div class="stats-grid">
+              <article class="stat-card"><span class="stat-icon"><i
+                    class="fa-regular fa-calendar-check"></i></span><strong>12</strong><span>Total Sessions</span>
+              </article>
+              <article class="stat-card"><span class="stat-icon"><i class="fa-solid fa-ticket"></i></span><strong>2
+                  <small>Sessions</small></strong><span>Active Pass</span></article>
+              <article class="stat-card"><span class="stat-icon"><i
+                    class="fa-regular fa-clock"></i></span><strong>2</strong><span>Upcoming Bookings</span></article>
+              <article class="stat-card"><span class="stat-icon"><i
+                    class="fa-solid fa-users"></i></span><strong>24</strong><span>Total Players Hosted</span></article>
+            </div>
+            <article class="pass-card">
+              <div class="pass-top"><span class="pass-icon"><i class="fa-solid fa-ticket"></i></span><span
+                  class="pass-tag">ACTIVE</span></div>
+              <h3>5-Session Pass</h3>
+              <p class="pass-count"><strong>3 of 5 sessions used</strong><span>60%</span></p>
+              <div class="progress-track" role="progressbar" aria-label="Pass sessions used" aria-valuemin="0"
+                aria-valuemax="5" aria-valuenow="3"><span></span></div>
+              <p class="pass-remaining">2 sessions remaining <span>Valid until Dec 20, 2026</span></p>
+              <div class="pass-actions"><a class="button-primary" href="d3.html">Use Pass</a><a class="button-outline"
+                  href="d4.html">View Pass</a></div>
+            </article>
+          </div>
+        </section>
+        <section class="dashboard-section activity-layout">
+          <article class="activity-panel">
+            <div class="section-heading">
+              <div><span class="eyebrow">THE GOOD TIMES</span>
+                <h2>Recent Activity</h2>
+              </div><a class="subtle-link" href="d7.html">View Full History <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="activity-list">
+              <div class="activity-row"><span class="activity-icon"><i class="fa-solid fa-futbol"></i></span>
+                <div class="activity-info"><strong>Bubble Football</strong><span>Oct 06, 2026 · 8 Players</span></div>
+                <span class="status-complete">Completed</span>
+              </div>
+              <div class="activity-row"><span class="activity-icon"><i
+                    class="fa-solid fa-person-circle-check"></i></span>
+                <div class="activity-info"><strong>Zorbing</strong><span>Oct 01, 2026 · 4 Players</span></div><span
+                  class="status-complete">Completed</span>
+              </div>
+              <div class="activity-row"><span class="activity-icon"><i class="fa-solid fa-futbol"></i></span>
+                <div class="activity-info"><strong>Bubble Football</strong><span>Sep 26, 2026 · 6 Players</span></div>
+                <span class="status-complete">Completed</span>
+              </div>
+              <div class="activity-row"><span class="activity-icon"><i
+                    class="fa-solid fa-person-circle-check"></i></span>
+                <div class="activity-info"><strong>Zorbing</strong><span>Sep 18, 2026 · 3 Players</span></div><span
+                  class="status-complete">Completed</span>
+              </div>
+            </div>
+          </article>
+          <article class="quick-panel">
+            <div class="section-heading">
+              <div><span class="eyebrow">READY WHEN YOU ARE</span>
+                <h2>Quick Actions</h2>
+              </div>
+            </div>
+            <div class="quick-grid">
+              <a class="quick-action" href="d3.html"><span class="quick-icon"><i
+                    class="fa-solid fa-ticket"></i></span><span><strong>Book a Session</strong><small>Pick your next
+                    adventure</small></span><i class="fa-solid fa-arrow-right quick-arrow"></i></a><a
+                class="quick-action" href="d2.html"><span class="quick-icon"><i
+                    class="fa-regular fa-calendar-check"></i></span><span><strong>View My Bookings</strong><small>See
+                    what's coming up</small></span><i class="fa-solid fa-arrow-right quick-arrow"></i></a><a
+                class="quick-action" href="d4.html"><span class="quick-icon"><i
+                    class="fa-solid fa-layer-group"></i></span><span><strong>Buy Session Pass</strong><small>More fun,
+                    better value</small></span><i class="fa-solid fa-arrow-right quick-arrow"></i></a><a
+                class="quick-action" href="d5.html"><span class="quick-icon"><i
+                    class="fa-solid fa-users"></i></span><span><strong>Group Booking</strong><small>Bring everyone
+                    along</small></span><i class="fa-solid fa-arrow-right quick-arrow"></i></a>
+            </div>
+          </article>
+        </section>
+      </div>
+      <div class="modal-overlay" id="dashboard-booking-modal" hidden>
+        <section class="content-modal" role="dialog" aria-modal="true" aria-labelledby="dashboard-modal-title"><button
+            class="modal-close" type="button" data-modal-close aria-label="Close"><i
+              class="fa-solid fa-xmark"></i></button><span class="modal-kicker">UPCOMING SESSION</span>
+          <h2 id="dashboard-modal-title">Bubble Football</h2>
+          <p class="modal-intro">Your next BounceRush adventure is all set.</p>
+          <div class="modal-details">
+            <div><span>Date &amp; time</span><strong>Tomorrow, 6:00 PM</strong></div>
+            <div><span>Group size</span><strong>8 Players</strong></div>
+            <div><span>Duration</span><strong>60 Minutes</strong></div>
+            <div><span>Booking ID</span><strong>BR-2026-1048</strong></div>
+            <div><span>Payment</span><strong>Paid</strong></div>
+          </div><a class="button-primary modal-booking-link" href="d2.html">Manage booking <i
+              class="fa-solid fa-arrow-right"></i></a>
+        </section>
+      </div>
+    </main>
+    <div class="confirm-overlay" id="logout-confirm" hidden>
+      <section class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="logout-title"
+        aria-describedby="logout-message">
+        <span class="confirm-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+        <h2 id="logout-title">Log out?</h2>
+        <p id="logout-message">Are you sure you want to log out of your account?</p>
+        <div class="confirm-actions">
+          <button class="confirm-cancel" type="button" data-cancel-logout>No</button>
+          <button class="confirm-accept" type="button" data-confirm-logout>Yes, log out</button>
+        </div>
+      </section>
+    </div>
+    <div class="dashboard-toast" id="dashboard-toast" role="status" aria-live="polite"></div>
+  </div>
+</body>
+
+</html>

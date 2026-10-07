@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sign in to your BounceRush Arena account.">
+    <title>Login | BounceRush Arena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-page">
+    <div class="auth-controls" aria-label="Display preferences">
+        <button class="header-icon-btn theme-toggle" type="button" aria-label="Switch to dark mode"><i class="fa-solid fa-moon"></i></button>
+        <button class="header-icon-btn rtl-toggle" type="button" aria-label="Toggle RTL mode"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+    </div>
+    <main class="auth-main">
+        <section class="auth-card" aria-labelledby="auth-title">
+            <a class="auth-logo" href="index.html" aria-label="BounceRush Arena home"><img src="images/logo.png" alt="BounceRush Arena"></a>
+            <header class="auth-heading">
+                <h1 id="auth-title">Welcome Back</h1>
+                <p>Sign in to continue your BounceRush Arena experience.</p>
+            </header>
+            <form class="auth-form" data-auth-form="login" novalidate>
+                <label class="field-label" for="email">Email Address</label>
+                <div class="input-wrap"><i class="fa-regular fa-envelope field-icon" aria-hidden="true"></i><input id="email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required></div>
+                <label class="field-label" for="password">Password</label>
+                <div class="input-wrap"><i class="fa-solid fa-lock field-icon" aria-hidden="true"></i><input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required><button class="password-toggle" type="button" aria-label="Show password" aria-controls="password"><i class="fa-regular fa-eye"></i></button></div>
+                <div class="form-options"><label class="check-label"><input type="checkbox" name="remember"><span>Remember me</span></label><a class="accent-link" href="#" data-forgot>Forgot Password?</a></div>
+                <button class="auth-submit" type="submit">Login</button>
+                <p class="form-message" aria-live="polite"></p>
+            </form>
+            <div class="auth-divider"><span>Or continue with</span></div>
+            <div class="social-buttons" aria-label="Social sign in">
+                <button type="button" class="social-button" data-social="Google"><img src="images/google-logo.svg" alt=""> <span>Google</span></button>
+                <button type="button" class="social-button" data-social="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i><span>Facebook</span></button>
+                <button type="button" class="social-button" data-social="Apple"><i class="fa-brands fa-apple" aria-hidden="true"></i><span>Apple</span></button>
+            </div>
+            <p class="auth-switch">Don't have an account? <a class="accent-link" href="register.html">Register</a></p>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

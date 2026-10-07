@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Choose your activity, group size and time at BounceRush Arena.">
+    <title>Book a Session | BounceRush Arena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="booking-page">
+    <header class="booking-topbar">
+        <a href="index.html" class="booking-logo" aria-label="BounceRush Arena home"><img src="images/logo.png" alt="BounceRush Arena"></a>
+        <div class="booking-controls" aria-label="Display preferences">
+            <button class="header-icon-btn theme-toggle" type="button" aria-label="Switch to dark mode"><i class="fa-solid fa-moon"></i></button>
+            <button class="header-icon-btn rtl-toggle" type="button" aria-label="Toggle RTL mode"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        </div>
+    </header>
+    <main class="booking-main">
+        <header class="booking-intro">
+            <span class="booking-eyebrow">BOOK YOUR SESSION</span>
+            <h1>Choose Your Rush</h1>
+            <p>Pick your activity, group size and preferred time to reserve your BounceRush Arena experience.</p>
+        </header>
+        <section class="booking-card" aria-label="Session booking">
+            <form id="booking-form" novalidate>
+                <div class="booking-fields">
+                    <div class="booking-field"><label for="activity">Choose Activity</label><select id="activity" name="activity" required><option value="">Select Activity</option><option>Zorbing</option><option>Bubble Football</option></select><small class="field-error" data-error="activity"></small></div>
+                    <div class="booking-field"><label for="group-size">Group Size</label><select id="group-size" name="groupSize" required><option value="">Select Group Size</option><option>2–4 Players</option><option>5–8 Players</option><option>9–15 Players</option><option>16+ Players</option></select><small class="field-error" data-error="groupSize"></small></div>
+                    <div class="booking-field"><label for="booking-date">Select Date</label><input id="booking-date" name="date" type="date" required><small class="field-error" data-error="date"></small></div>
+                    <div class="booking-field"><label for="time-slot">Available Time Slot</label><select id="time-slot" name="time" required><option value="">Select Time Slot</option><option>10:00 AM – 11:00 AM</option><option>11:30 AM – 12:30 PM</option><option>2:00 PM – 3:00 PM</option><option>3:30 PM – 4:30 PM</option><option>5:00 PM – 6:00 PM</option><option>6:30 PM – 7:30 PM</option></select><small class="field-error" data-error="time"></small></div>
+                    <div class="booking-field booking-field-wide"><label for="package">Choose Package</label><select id="package" name="package" required><option value="">Select a package</option><option value="single">Single Session</option><option value="three">3-Session Pass</option><option value="five">5-Session Pass</option><option value="group">Group Package</option></select><div id="package-info" class="package-info" aria-live="polite">Select a package to see its details and price.</div><small class="field-error" data-error="package"></small></div>
+                </div>
+                <div class="player-details">
+                    <h2>Player Details</h2>
+                    <div class="booking-fields">
+                        <div class="booking-field"><label for="full-name">Full Name</label><input id="full-name" name="fullName" type="text" placeholder="Enter your full name" autocomplete="name" required><small class="field-error" data-error="fullName"></small></div>
+                        <div class="booking-field"><label for="email">Email Address</label><input id="email" name="email" type="email" placeholder="Enter your email address" autocomplete="email" required><small class="field-error" data-error="email"></small></div>
+                        <div class="booking-field"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" placeholder="Enter your phone number" autocomplete="tel" required><small class="field-error" data-error="phone"></small></div>
+                        <div class="booking-field"><label for="players">Number of Players</label><input id="players" name="players" type="number" min="2" max="100" step="1" placeholder="Enter number of players" required><small class="field-error" data-error="players"></small></div>
+                    </div>
+                </div>
+                <div class="booking-field notes-field"><label for="notes">Special Requests <span>(optional)</span></label><textarea id="notes" name="notes" rows="3" placeholder="Any special requests or additional information?"></textarea></div>
+                <section class="booking-summary" aria-live="polite" aria-label="Booking summary">
+                    <h2>Booking Summary</h2>
+                    <dl>
+                        <div><dt>Activity</dt><dd data-summary="activity">—</dd></div>
+                        <div><dt>Group Size</dt><dd data-summary="groupSize">—</dd></div>
+                        <div><dt>Date</dt><dd data-summary="date">—</dd></div>
+                        <div><dt>Time</dt><dd data-summary="time">—</dd></div>
+                        <div><dt>Package</dt><dd data-summary="package">—</dd></div>
+                        <div class="summary-total"><dt>Total Amount</dt><dd data-summary="total">—</dd></div>
+                    </dl>
+                </section>
+                <p id="booking-feedback" class="booking-feedback" aria-live="polite"></p>
+                <button class="booking-submit" type="submit">Book Session</button>
+            </form>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>
