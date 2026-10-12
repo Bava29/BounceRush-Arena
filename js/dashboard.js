@@ -73,8 +73,8 @@
     menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   };
 
-  const storedTheme = localStorage.getItem('theme');
-  const isDark = storedTheme === 'dark' || (!storedTheme && localStorage.getItem('darkMode') === 'true');
+  const storedTheme = localStorage.getItem('bouncerush-theme') ?? localStorage.getItem('theme');
+  const isDark = storedTheme ? storedTheme === 'dark' : localStorage.getItem('darkMode') === 'true';
   root.classList.toggle('dark-mode', isDark);
   const storedRtl = localStorage.getItem('rtl');
   root.dir = storedRtl === 'true' || storedRtl === 'rtl' ? 'rtl' : 'ltr';
@@ -90,6 +90,7 @@
   document.querySelectorAll('.theme-toggle').forEach((button) => button.addEventListener('click', () => {
     const dark = !root.classList.contains('dark-mode');
     root.classList.toggle('dark-mode', dark);
+    localStorage.setItem('bouncerush-theme', dark ? 'dark' : 'light');
     localStorage.setItem('theme', dark ? 'dark' : 'light');
     localStorage.setItem('darkMode', String(dark));
     updateThemeButtons();

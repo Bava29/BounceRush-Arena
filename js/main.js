@@ -584,3 +584,54 @@ function updateGroupSummary() {
 
 /* Initial State */
 updateGroupSummary();
+
+
+/* =========================================
+   ACTIVE NAVIGATION MENU
+   Works on all pages and dark mode
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const currentPage = window.location.pathname
+        .split("/")
+        .pop()
+        .toLowerCase() || "index.html";
+
+    const navigation = document.querySelector(".main-navigation");
+
+    if (!navigation) return;
+
+    // Remove previous active states
+    navigation.querySelectorAll(".nav-link, .dropdown-menu a")
+        .forEach(link => link.classList.remove("active"));
+
+    navigation.querySelectorAll(".nav-item.has-dropdown")
+        .forEach(item => item.classList.remove("active"));
+
+    // Find and activate the current page link
+    navigation.querySelectorAll("a[href]").forEach(link => {
+        const href = link.getAttribute("href");
+
+        if (!href || href === "#") return;
+
+        const linkPage = href.split("/").pop().toLowerCase();
+
+        if (linkPage === currentPage) {
+            link.classList.add("active");
+
+            const parentItem = link.closest(".nav-item.has-dropdown");
+
+            if (parentItem) {
+                parentItem.classList.add("active");
+
+                const dropdownLink = parentItem.querySelector(
+                    ":scope > .dropdown-link"
+                );
+
+                if (dropdownLink) {
+                    dropdownLink.classList.add("active");
+                }
+            }
+        }
+    });
+});
