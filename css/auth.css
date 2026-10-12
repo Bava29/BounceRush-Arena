@@ -61,7 +61,7 @@ html.dark-mode .auth-card {
 }
 
 .auth-logo img {
-    width: 170px;
+    width: 200px;
     max-height: 75px;
     object-fit: contain;
 }
@@ -74,7 +74,7 @@ html.dark-mode .auth-card {
 .auth-heading h1 {
     margin-bottom: 8px;
     color: var(--primary-color);
-    font-size: 27px;
+    font-size: 22px;
     letter-spacing: -.6px;
 }
 
@@ -304,7 +304,7 @@ html.dark-mode .social-button .fa-apple {
 }
 
 .auth-card-register .auth-logo img {
-    width: 145px;
+    width: 200px;
     max-height: 56px;
 }
 
@@ -521,4 +521,84 @@ html.dark-mode .auth-logo img {
 
     width: 40px;
     height: 40px;
+}
+
+/* =========================================
+   MOBILE LOGIN / REGISTER - CENTER ALIGN
+========================================= */
+
+@media screen and (max-width: 540px) {
+
+    .auth-page {
+        min-height: 100vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow-x: hidden !important;
+    }
+
+    .auth-controls {
+        position: absolute !important;
+        top: 14px !important;
+        right: 14px !important;
+        left: auto !important;
+        width: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        justify-content: flex-end !important;
+    }
+
+    .auth-main,
+    .auth-main-register {
+        width: 100% !important;
+        min-height: 100vh !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 75px 14px 24px !important;
+        margin: 0 auto !important;
+    }
+
+    .auth-card {
+        width: 100% !important;
+        max-width: 448px !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .social-buttons {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+    }
+
+    .social-button {
+        justify-content: center !important;
+        padding: 0 6px !important;
+        min-width: 0 !important;
+        font-size: 12px !important;
+    }
+}
+
+/* Very small mobile */
+@media screen and (max-width: 360px) {
+
+    .auth-main,
+    .auth-main-register {
+        padding-inline: 12px !important;
+    }
+
+    .auth-card {
+        padding-inline: 17px !important;
+    }
+
+    .social-buttons {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+}
+
+/* RTL control alignment */
+html[dir="rtl"] .auth-controls {
+    right: auto !important;
+    left: 14px !important;
 }

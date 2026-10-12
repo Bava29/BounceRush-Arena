@@ -838,8 +838,19 @@ html.dark-mode .nav-item.has-dropdown:hover>.dropdown-link {
     padding-inline: 24px;
 
     display: flex;
+    direction: ltr;
     align-items: center;
     justify-content: space-between;
+}
+
+/* Keep the brand on the physical left and header actions on the physical right
+   when the page's text direction is switched to RTL. */
+html[dir="rtl"] .main-navigation {
+    direction: rtl;
+}
+
+html[dir="rtl"] .header-actions {
+    direction: ltr;
 }
 
 
@@ -22810,10 +22821,11 @@ html[dir="rtl"] .site-logo {
 }
 
 html[dir="rtl"] .header-actions {
-    margin-left: 0;
-    margin-right: auto;
+    /* Keep header controls at the physical right edge in either text direction. */
+    margin-left: auto;
+    margin-right: 0;
 
-    justify-content: flex-start;
+    justify-content: flex-end;
 }
 
 html[dir="rtl"] .menu-toggle {
@@ -28819,4 +28831,1303 @@ html[dir="rtl"] #phone {
 html.dark-mode .booking-field input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
     opacity: 1;
+}
+
+/* =========================================================
+   HEADER ALIGNMENT OVERRIDE - DESKTOP
+   Logo: Left Edge
+   Navigation: Center
+   Controls: Right Edge
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .site-header .header-container {
+        width: 100% !important;
+        max-width: none !important;
+        min-height: 82px;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        margin: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        position: relative !important;
+        direction: ltr !important;
+    }
+
+    /* Logo at the far left */
+    .site-header .site-logo {
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .site-header .site-logo img {
+        width: 185px;
+        max-width: none;
+        display: block;
+    }
+
+    /* Navigation stays centered */
+    .site-header .main-navigation {
+        position: absolute !important;
+        left: 50% !important;
+        right: auto !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+
+        margin: 0 !important;
+        width: max-content;
+        justify-content: center !important;
+    }
+
+    .site-header .nav-menu {
+        gap: 24px;
+        flex-wrap: nowrap;
+    }
+
+    /* Dark mode, RTL, Login and Book Now at the far right */
+    .site-header .header-actions {
+        position: static !important;
+        flex: 0 0 auto !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        padding: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 10px;
+        direction: ltr !important;
+    }
+
+    .site-header .menu-toggle {
+        display: none !important;
+    }
+
+    .site-header .mobile-controls {
+        display: none !important;
+    }
+}
+
+/* RTL mode: keep logo left and action buttons right */
+@media (min-width: 1200px) {
+    html[dir="rtl"] .site-header .header-container {
+        direction: ltr !important;
+    }
+
+    html[dir="rtl"] .site-header .main-navigation {
+        direction: rtl !important;
+    }
+
+    html[dir="rtl"] .site-header .header-actions {
+        direction: ltr !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* Move Desktop Navigation Slightly Left */
+@media (min-width: 1200px) {
+    .site-header .main-navigation {
+        left: 47% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    .site-header .nav-menu {
+        gap: 20px !important;
+    }
+}
+
+/* =========================================================
+   BOUNCERUSH ARENA - STRONG DESKTOP RTL HEADER OVERRIDE
+   LTR: Keep Existing Header Unchanged
+   RTL: Book Now | Login | RTL | Dark Mode | Menus | Logo
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    /* Keep header dimensions and spacing unchanged */
+    html[dir="rtl"] .site-header .header-container {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: row !important;
+        direction: ltr !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    /* RIGHT EDGE: LOGO */
+    html[dir="rtl"] .site-header .site-logo {
+        order: 3 !important;
+        flex: 0 0 auto !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+    }
+
+    html[dir="rtl"] .site-header .site-logo img {
+        display: block !important;
+        width: 185px !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* CENTER: MENUS */
+    html[dir="rtl"] .site-header .main-navigation {
+        display: flex !important;
+        position: absolute !important;
+        left: 50% !important;
+        right: auto !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: max-content !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        direction: rtl !important;
+        justify-content: center !important;
+        z-index: 2 !important;
+    }
+
+    html[dir="rtl"] .site-header .nav-menu {
+        display: flex !important;
+        flex-direction: row !important;
+        direction: rtl !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-wrap: nowrap !important;
+
+        /* Preserve the existing menu spacing */
+        gap: 28px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    html[dir="rtl"] .site-header .nav-link {
+        white-space: nowrap !important;
+    }
+
+    /* LEFT EDGE: BOOK NOW | LOGIN | RTL | DARK MODE */
+    html[dir="rtl"] .site-header .header-actions {
+        order: 1 !important;
+        display: flex !important;
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+
+        flex: 0 0 auto !important;
+        flex-direction: row-reverse !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        padding: 0 !important;
+        gap: 10px !important;
+        direction: ltr !important;
+        z-index: 3 !important;
+    }
+
+    /* Keep the desktop controls visible */
+    html[dir="rtl"] .site-header .header-actions .theme-toggle,
+    html[dir="rtl"] .site-header .header-actions .rtl-toggle,
+    html[dir="rtl"] .site-header .header-actions .header-login,
+    html[dir="rtl"] .site-header .header-actions .header-book {
+        position: static !important;
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+    }
+
+    /* Hide mobile-only controls on desktop */
+    html[dir="rtl"] .site-header .mobile-controls,
+    html[dir="rtl"] .site-header .menu-toggle {
+        display: none !important;
+    }
+}
+
+/* RTL DESKTOP - ADJUST MENU POSITION AND SPACING */
+
+@media (min-width: 1200px) {
+
+    /* Move menus slightly to the right */
+    html[dir="rtl"] .site-header .main-navigation {
+        left: calc(50% + 35px) !important;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    /* Reduce spacing between menu items */
+    html[dir="rtl"] .site-header .nav-menu {
+        gap: 20px !important;
+    }
+}
+
+/* Home 1 - Experience Bottom Button Hover Outline */
+
+.home1-experience-bottom .btn:hover,
+.home1-experience-bottom .btn:focus-visible {
+    background-color: var(--primary-color) !important;
+    color: var(--white-color) !important;
+    border: 2px solid var(--secondary-color) !important;
+    box-shadow: none !important;
+}
+
+/* Smooth outline transition */
+.home1-experience-bottom .btn {
+    transition: all 0.3s ease;
+}
+
+
+/* Active menu color in dark mode */
+html.dark-mode .main-navigation .nav-link.active,
+html.dark-mode .main-navigation .nav-item.active>.nav-link,
+html.dark-mode .main-navigation .dropdown-menu a.active {
+    color: var(--secondary-color) !important;
+}
+
+/* Active menu underline */
+.main-navigation .nav-link.active::after {
+    width: 100%;
+    background-color: var(--secondary-color);
+}
+
+/* Active Home dropdown item */
+html.dark-mode .main-navigation .dropdown-menu a.active {
+    background-color: rgba(249, 115, 22, 0.14) !important;
+}
+
+/* Active dropdown parent */
+html.dark-mode .main-navigation .nav-item.has-dropdown.active>.dropdown-link {
+    color: var(--secondary-color) !important;
+}
+
+html.dark-mode .main-navigation .nav-item.has-dropdown.active>.dropdown-link i {
+    color: var(--secondary-color) !important;
+}
+
+/* Dark mode - Booking button hover outline */
+html.dark-mode .booking-submit:hover {
+    background-color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--white-color);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.22);
+}
+
+/* Keyboard focus outline */
+html.dark-mode .booking-submit:focus-visible {
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.22);
+}
+
+/* RTL: Align only the Final CTA button to the left */
+html[dir="rtl"] #home2-final-cta .home2-final-cta-button {
+    display: flex !important;
+    width: fit-content !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    align-self: flex-start !important;
+    float: none !important;
+}
+
+/* About CTA: keep the copy on the right and the BR mark on the left in RTL.
+   This final rule wins over the responsive CTA layout declarations above. */
+@media (min-width: 769px) {
+    html[dir="rtl"] .about-final-cta .about-final-cta-container {
+        direction: ltr !important;
+        flex-direction: row !important;
+    }
+
+    html[dir="rtl"] .about-final-cta .about-final-cta-content {
+        order: 2 !important;
+        text-align: right !important;
+    }
+
+    html[dir="rtl"] .about-final-cta .about-final-cta-mark {
+        order: 1 !important;
+        display: flex !important;
+        margin-right: 0;
+        margin-left: 32px !important;
+    }
+}
+
+/* =========================================================
+   BOUNCERUSH FOOTER — STRONG RTL ALIGNMENT OVERRIDE
+========================================================= */
+
+html[dir="rtl"] body .site-footer .footer-container {
+    direction: rtl !important;
+}
+
+/* All footer headings and text align right */
+html[dir="rtl"] body .site-footer .footer-brand,
+html[dir="rtl"] body .site-footer .footer-column {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body .site-footer .footer-column h3 {
+    width: 100% !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body .site-footer .footer-column ul {
+    align-items: stretch !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body .site-footer .footer-column ul li {
+    width: 100% !important;
+    text-align: right !important;
+}
+
+/* Contact icons on the RIGHT, text beside them */
+html[dir="rtl"] body .site-footer .footer-contact-item {
+    display: flex !important;
+    flex-direction: row !important;
+    direction: rtl !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    text-align: right !important;
+    gap: 12px !important;
+}
+
+html[dir="rtl"] body .site-footer .footer-contact-item i {
+    order: 1 !important;
+    flex: 0 0 18px !important;
+    text-align: center !important;
+}
+
+html[dir="rtl"] body .site-footer .footer-contact-item span,
+html[dir="rtl"] body .site-footer .footer-contact-item a {
+    order: 2 !important;
+    direction: ltr !important;
+    text-align: right !important;
+    overflow-wrap: anywhere !important;
+}
+
+/* Brand description and social icons */
+html[dir="rtl"] body .site-footer .footer-brand p {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body .site-footer .footer-social {
+    direction: rtl !important;
+    justify-content: flex-start !important;
+}
+
+/* Footer bottom */
+html[dir="rtl"] body .site-footer .footer-bottom-inner {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] body .site-footer .footer-bottom-inner p {
+    text-align: right !important;
+}
+
+html[dir="rtl"] body .site-footer .footer-bottom-links {
+    direction: rtl !important;
+    justify-content: flex-start !important;
+}
+
+/* ACTIVITIES TIMELINE — FULL CONNECTION IN RTL */
+
+html[dir="rtl"] body .activities-expect-steps {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] body .activities-expect-step {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+html[dir="rtl"] body .activities-expect-step .activities-expect-line {
+    display: block !important;
+    position: absolute !important;
+
+    /* Connect adjacent circles fully */
+    top: 23px !important;
+    right: 50% !important;
+    left: auto !important;
+    width: 100% !important;
+    height: 2px !important;
+
+    transform: none !important;
+    z-index: 1 !important;
+}
+
+/* Keep circles above the connecting line */
+html[dir="rtl"] body .activities-expect-top,
+html[dir="rtl"] body .activities-expect-number {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Hide only the line extending beyond the leftmost circle (05) */
+html[dir="rtl"] body .activities-expect-step:last-child .activities-expect-line {
+    display: none !important;
+}
+
+/* Keep the rightmost circle (01) connected inward */
+html[dir="rtl"] body .activities-expect-step:first-child .activities-expect-line {
+    display: block !important;
+}
+
+/* Preserve centered step content */
+html[dir="rtl"] body .activities-expect-step h3,
+html[dir="rtl"] body .activities-expect-step p {
+    text-align: center !important;
+}
+
+/* GROUP & CORPORATE — DARK MODE DURATION NUMBERS FIX */
+
+html.dark-mode body .group-builder-section .group-duration-option {
+    color: #ffffff !important;
+}
+
+html.dark-mode body .group-builder-section .group-duration-option strong {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+html.dark-mode body .group-builder-section .group-duration-option span {
+    color: #cbd5e1 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Selected duration */
+html.dark-mode body .group-builder-section .group-duration-option.active {
+    border-color: #F97316 !important;
+    background: rgba(249, 115, 22, 0.12) !important;
+}
+
+html.dark-mode body .group-builder-section .group-duration-option.active strong {
+    color: #ffffff !important;
+}
+
+/* SAFETY REMEMBER NOTICE — MOVE CIRCLE ICON TO RIGHT IN RTL */
+
+html[dir="rtl"] body .safety-play-notice {
+    position: relative !important;
+}
+
+html[dir="rtl"] body .safety-play-notice-icon {
+    position: absolute !important;
+    right: 20px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+    order: unset !important;
+}
+
+/* Keep the text in its existing area, away from the icon */
+html[dir="rtl"] body .safety-play-notice-content {
+    margin-right: 55px !important;
+    margin-left: 0 !important;
+}
+
+/* RTL Safety Notice — Bring Content Closer to Icon */
+
+html[dir="rtl"] body .safety-play-notice-content {
+    margin-right: 50px !important;
+    margin-left: 0 !important;
+    padding-right: 0 !important;
+    width: auto !important;
+    flex: 1 1 auto !important;
+}
+
+html[dir="rtl"] body .safety-play-notice-content p {
+    text-align: right !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* BOOKING DATE INPUT — RTL ALIGNMENT FIX */
+
+html[dir="rtl"] body.booking-page #booking-date {
+    direction: rtl !important;
+    text-align: right !important;
+    padding-right: 13px !important;
+    padding-left: 38px !important;
+}
+
+/* Move native calendar icon to the left */
+html[dir="rtl"] body.booking-page #booking-date::-webkit-calendar-picker-indicator {
+    position: absolute;
+    left: 12px !important;
+    right: auto !important;
+    margin: 0 !important;
+    cursor: pointer;
+}
+
+/* Ensure date input supports icon positioning */
+html[dir="rtl"] body.booking-page #booking-date {
+    position: relative !important;
+}
+
+/* Keep the date field within its container */
+html[dir="rtl"] body.booking-page .booking-field:has(#booking-date) {
+    direction: rtl !important;
+}
+
+/* HOME 2 — iPad Mini / Mobile: Remove Vertical VS Lines */
+@media (max-width: 768px) {
+
+    html body .home2-challenge-stage .home2-challenge-vs>.home2-challenge-line {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    html body .home2-challenge-stage .home2-challenge-vs {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 8px 0 !important;
+    }
+
+    html body .home2-challenge-stage .home2-challenge-vs-circle {
+        flex-shrink: 0 !important;
+    }
+}
+
+/* =====================================================
+   HOME 2 - MOMENTS GALLERY
+   STRONG iPAD MINI + MOBILE OVERRIDE
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* Section spacing */
+    html body .home2-moments {
+        padding: 55px 0 !important;
+        overflow: hidden !important;
+    }
+
+    html body .home2-moments>.container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        margin: 0 auto !important;
+    }
+
+    /* Heading and description */
+    html body .home2-moments-header {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        align-items: flex-start !important;
+        gap: 14px !important;
+        margin-bottom: 25px !important;
+        width: 100% !important;
+    }
+
+    html body .home2-moments-header h2 {
+        font-size: clamp(27px, 6vw, 34px) !important;
+        line-height: 1.25 !important;
+        overflow-wrap: normal !important;
+        word-break: normal !important;
+    }
+
+    html body .home2-moments-header>p {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 14px !important;
+        line-height: 1.7 !important;
+    }
+
+    /* Rebuild gallery as a proper 2-column grid */
+    html body .home2-moments-gallery {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-template-rows: auto !important;
+        grid-auto-flow: row !important;
+        gap: 10px !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* First large image: full width */
+    html body .home2-moments-gallery .home2-moment-large {
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+        width: 100% !important;
+        height: 260px !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+    }
+
+    /* Top two images: side by side */
+    html body .home2-moments-gallery .home2-moment-top,
+    html body .home2-moments-gallery .home2-moment-middle {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        width: 100% !important;
+        height: 175px !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+    }
+
+    /* Bottom image: full width */
+    html body .home2-moments-gallery .home2-moment-bottom {
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+        width: 100% !important;
+        height: 210px !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+    }
+
+    /* Keep images properly cropped */
+    html body .home2-moments-gallery .home2-moment img {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+
+    /* Prevent vertical text wrapping on large image */
+    html body .home2-moment-large .home2-moment-content {
+        left: 16px !important;
+        right: 16px !important;
+        bottom: 16px !important;
+        width: auto !important;
+        max-width: calc(100% - 32px) !important;
+    }
+
+    html body .home2-moment-large .home2-moment-content h3 {
+        font-size: clamp(20px, 5vw, 27px) !important;
+        line-height: 1.3 !important;
+        overflow-wrap: normal !important;
+        word-break: normal !important;
+    }
+
+    /* Gallery footer */
+    html body .home2-moments-footer {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        gap: 16px !important;
+        width: 100% !important;
+        margin-top: 22px !important;
+    }
+
+    html body .home2-moments-counter,
+    html body .home2-moments-link {
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+}
+
+/* Small phones */
+@media screen and (max-width: 400px) {
+
+    html body .home2-moments-gallery {
+        gap: 8px !important;
+    }
+
+    html body .home2-moments-gallery .home2-moment-large {
+        height: 225px !important;
+    }
+
+    html body .home2-moments-gallery .home2-moment-top,
+    html body .home2-moments-gallery .home2-moment-middle {
+        height: 145px !important;
+    }
+
+    html body .home2-moments-gallery .home2-moment-bottom {
+        height: 175px !important;
+    }
+}
+
+/* =====================================================
+   HOME 2 - iPAD PRO RESPONSIVE FIX
+   MOMENTS GALLERY + TESTIMONIALS
+===================================================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    /* ---------- SECTION 5: MOMENTS HEADER ---------- */
+
+    html body .home2-moments {
+        padding: 75px 0 !important;
+        overflow: hidden !important;
+    }
+
+    html body .home2-moments .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-inline: 24px !important;
+    }
+
+    html body .home2-moments-header {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 16px !important;
+        margin-bottom: 28px !important;
+    }
+
+    html body .home2-moments-header h2 {
+        font-size: clamp(30px, 4vw, 40px) !important;
+        line-height: 1.2 !important;
+    }
+
+    html body .home2-moments-header>p {
+        max-width: 650px !important;
+        font-size: 14px !important;
+        line-height: 1.7 !important;
+    }
+
+
+    /* ---------- IMAGE GALLERY ---------- */
+
+    html body .home2-moments-gallery {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+        grid-template-rows: repeat(3, 155px) !important;
+        grid-auto-flow: row !important;
+        gap: 12px !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+    }
+
+    html body .home2-moments-gallery .home2-moment {
+        position: relative !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Large image on the left */
+    html body .home2-moments-gallery .home2-moment-large {
+        grid-column: 1 !important;
+        grid-row: 1 / 4 !important;
+    }
+
+    /* Three smaller images on the right */
+    html body .home2-moments-gallery .home2-moment-top {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+    }
+
+    html body .home2-moments-gallery .home2-moment-middle {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+    }
+
+    html body .home2-moments-gallery .home2-moment-bottom {
+        grid-column: 2 !important;
+        grid-row: 3 !important;
+        height: 100% !important;
+    }
+
+    html body .home2-moments-gallery .home2-moment img {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    html body .home2-moment-content,
+    html body .home2-moment-small-content {
+        position: absolute !important;
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 12px !important;
+        width: auto !important;
+        max-width: calc(100% - 24px) !important;
+        z-index: 2 !important;
+    }
+
+    html body .home2-moment-content h3 {
+        font-size: clamp(19px, 2.5vw, 25px) !important;
+        line-height: 1.3 !important;
+        overflow-wrap: normal !important;
+        word-break: normal !important;
+    }
+
+    html body .home2-moment-small-content strong {
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+    }
+
+    html body .home2-moments-footer {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 14px !important;
+        margin-top: 22px !important;
+    }
+
+
+    /* ---------- SECTION 6: TESTIMONIALS ---------- */
+
+    html body .home2-testimonials {
+        padding: 70px 0 !important;
+        overflow: hidden !important;
+    }
+
+    html body .home2-testimonials .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-inline: 24px !important;
+    }
+
+    html body .home2-testimonials-header {
+        margin-bottom: 28px !important;
+    }
+
+    html body .home2-testimonials-header h2 {
+        font-size: clamp(30px, 4vw, 40px) !important;
+        line-height: 1.2 !important;
+    }
+
+    html body .home2-testimonials-header p {
+        max-width: 600px !important;
+        font-size: 14px !important;
+        line-height: 1.7 !important;
+    }
+
+    /* Stack profile and quote instead of squeezing three columns */
+    html body .home2-testimonials-showcase {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+    }
+
+    html body .home2-testimonial-profile {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 16px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        padding: 22px 0 !important;
+        border-right: 0 !important;
+        border-left: 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, .14) !important;
+    }
+
+    html body .home2-testimonial-avatar {
+        flex: 0 0 58px !important;
+        width: 58px !important;
+        height: 58px !important;
+        margin: 0 !important;
+    }
+
+    html body .home2-testimonial-profile-info {
+        min-width: 0 !important;
+        flex: 1 !important;
+    }
+
+    html body .home2-testimonial-rating {
+        flex: 0 0 auto !important;
+        margin-left: auto !important;
+    }
+
+    html body .home2-testimonial-main {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        padding: 28px 0 !important;
+        text-align: left !important;
+    }
+
+    html body .home2-testimonial-main blockquote {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: clamp(20px, 2.8vw, 26px) !important;
+        line-height: 1.5 !important;
+        overflow-wrap: break-word !important;
+    }
+
+    html body .home2-testimonial-summary {
+        display: none !important;
+    }
+
+    html body .home2-testimonial-strip {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    /* RTL support */
+    html[dir="rtl"] body .home2-testimonial-main {
+        align-items: flex-start !important;
+        text-align: right !important;
+    }
+
+    html[dir="rtl"] body .home2-testimonial-profile {
+        flex-direction: row !important;
+    }
+
+    html[dir="rtl"] body .home2-testimonial-rating {
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+}
+
+/* =====================================================
+   HOME 2 FAQ - iPAD PRO OVERLAP FIX
+   STRONG OVERRIDE
+===================================================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    html body .home2-faq-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 28px !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+    }
+
+    html body .home2-faq-intro {
+        position: static !important;
+        inset: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        float: none !important;
+        clear: both !important;
+        overflow: visible !important;
+    }
+
+    html body .home2-faq-help {
+        position: static !important;
+        inset: auto !important;
+        transform: none !important;
+        display: flex !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 22px 0 0 !important;
+        box-sizing: border-box !important;
+        float: none !important;
+        clear: both !important;
+    }
+
+    html body .home2-faq-list {
+        position: relative !important;
+        inset: auto !important;
+        transform: none !important;
+        display: block !important;
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        float: none !important;
+        clear: both !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    html body .home2-faq-item {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        float: none !important;
+        clear: both !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    html body .home2-faq-question {
+        position: relative !important;
+        display: flex !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 58px !important;
+        margin: 0 !important;
+        transform: none !important;
+        box-sizing: border-box !important;
+    }
+
+    html body .home2-faq-answer {
+        position: static !important;
+        width: 100% !important;
+        height: 0 !important;
+        margin: 0 !important;
+        transform: none !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+
+    html body .home2-faq-item.active .home2-faq-answer {
+        display: block !important;
+        height: auto !important;
+        padding: 0 15px 20px !important;
+        overflow: visible !important;
+    }
+}
+
+/* =========================================
+   ABOUT TEAM - iPAD PRO FACE CROP FIX
+   STRONG OVERRIDE
+========================================= */
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    html body .about-team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 28px !important;
+        align-items: start !important;
+    }
+
+    html body .about-team-card {
+        min-width: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    html body .about-team-image {
+        height: 460px !important;
+        min-height: 460px !important;
+        max-height: none !important;
+        overflow: hidden !important;
+    }
+
+    html body .about-team-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center 20% !important;
+        transform: none !important;
+    }
+
+    html body .about-team-card:hover .about-team-image img {
+        transform: scale(1.02) !important;
+    }
+
+    html body .about-team-info {
+        position: relative !important;
+        height: auto !important;
+        min-height: 60px !important;
+        padding-top: 12px !important;
+        overflow: visible !important;
+    }
+}
+
+/* =========================================
+   ACTIVITIES EXPECT SECTION
+   iPAD PRO - LAST 2 STEPS CENTER ALIGNMENT
+========================================= */
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    html body .activities-expect-steps {
+        display: grid !important;
+        grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+        column-gap: 0 !important;
+        row-gap: 32px !important;
+    }
+
+    /* First 3 steps */
+    html body .activities-expect-step:nth-child(1) {
+        grid-column: 1 / 3 !important;
+    }
+
+    html body .activities-expect-step:nth-child(2) {
+        grid-column: 3 / 5 !important;
+    }
+
+    html body .activities-expect-step:nth-child(3) {
+        grid-column: 5 / 7 !important;
+    }
+
+    /* Last 2 steps centered in the second row */
+    html body .activities-expect-step:nth-child(4) {
+        grid-column: 2 / 4 !important;
+    }
+
+    html body .activities-expect-step:nth-child(5) {
+        grid-column: 4 / 6 !important;
+    }
+
+    html body .activities-expect-step {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 0 12px !important;
+        text-align: center !important;
+    }
+
+    html body .activities-expect-step p {
+        max-width: 190px !important;
+        margin: 0 auto !important;
+    }
+
+    html body .activities-expect-step .activities-expect-line {
+        display: none !important;
+    }
+}
+
+/* =========================================
+   GROUP BOOKING PROCESS
+   iPAD PRO RESPONSIVE FIX
+========================================= */
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    html body .group-booking-process-container {
+        width: calc(100% - 48px) !important;
+        max-width: 100% !important;
+        margin-inline: auto !important;
+    }
+
+    html body .group-booking-process {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 22px !important;
+        width: 100% !important;
+        align-items: stretch !important;
+    }
+
+    html body .group-booking-process>.group-process-step {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 250px !important;
+        height: 100% !important;
+        padding: 26px 22px !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    html body .group-booking-process>.group-process-connector {
+        display: none !important;
+    }
+
+    html body .group-process-content {
+        width: 100% !important;
+        min-width: 0 !important;
+        text-align: center !important;
+    }
+
+    html body .group-process-content h3 {
+        font-size: 17px !important;
+        line-height: 1.4 !important;
+        overflow-wrap: break-word;
+    }
+
+    html body .group-process-content p {
+        max-width: 300px !important;
+        margin-inline: auto !important;
+        font-size: 13px !important;
+        line-height: 1.7 !important;
+        overflow-wrap: break-word;
+    }
+}
+
+/* =========================================
+   CONTACT PAGE - iPAD PRO FIX
+   MESSAGE INTRO POINTS ONE BY ONE
+========================================= */
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    .contact-message-intro {
+        padding: 38px 30px !important;
+        min-width: 0 !important;
+    }
+
+    .contact-message-intro>p {
+        margin-bottom: 30px !important;
+    }
+
+    .contact-message-points {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important;
+        gap: 24px !important;
+        width: 100% !important;
+    }
+
+    .contact-message-point {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        gap: 13px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .contact-point-icon {
+        flex: 0 0 42px !important;
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    .contact-message-point>div:last-child {
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+
+    .contact-message-point h4 {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+    }
+
+    .contact-message-point p {
+        font-size: 13px !important;
+        line-height: 1.7 !important;
+    }
 }

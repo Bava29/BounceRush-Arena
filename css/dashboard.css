@@ -5439,3 +5439,95 @@ html.dark-mode input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1) brightness(2);
   opacity: 1;
 }
+
+/* D3 DATE INPUT — FORCE RTL ALIGNMENT */
+html[dir="rtl"] #session-date {
+  direction: rtl !important;
+  text-align: right !important;
+  padding-left: 38px !important;
+  padding-right: 12px !important;
+  unicode-bidi: plaintext;
+}
+
+/* Move native calendar icon to the LEFT */
+html[dir="rtl"] #session-date::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 12px !important;
+  right: auto !important;
+  margin: 0 !important;
+  cursor: pointer;
+}
+
+/* Required positioning context */
+html[dir="rtl"] #session-date {
+  position: relative;
+}
+
+
+/* D5 — Phone Number Input RTL Alignment */
+
+html[dir="rtl"] body #group-phone {
+  direction: rtl !important;
+  text-align: right !important;
+  padding-right: 12px !important;
+  padding-left: 11px !important;
+}
+
+html[dir="rtl"] body #group-phone::placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Keep phone number input aligned to the right */
+html[dir="rtl"] body #group-phone:focus {
+  text-align: right !important;
+}
+
+/* =========================================
+   iPAD MINI - RECOMMENDED BADGE OVERLAP FIX
+========================================= */
+
+@media screen and (min-width: 577px) and (max-width: 1024px) {
+
+  .pricing-card.recommended {
+    padding-top: 52px !important;
+  }
+
+  .pricing-card .recommended-tag {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    left: auto !important;
+    z-index: 2 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    max-width: calc(100% - 24px) !important;
+    padding: 5px 9px !important;
+
+    font-size: 9px !important;
+    line-height: 1.4 !important;
+    white-space: nowrap !important;
+  }
+
+  .pricing-card.recommended .eyebrow {
+    display: block !important;
+    max-width: 100% !important;
+    margin-bottom: 4px !important;
+    overflow-wrap: normal !important;
+  }
+
+  .pricing-card.recommended h3 {
+    position: static !important;
+    margin-top: 8px !important;
+    line-height: 1.4 !important;
+    overflow-wrap: normal !important;
+  }
+
+  html[dir="rtl"] .pricing-card .recommended-tag {
+    right: auto !important;
+    left: 12px !important;
+  }
+}
