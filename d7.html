@@ -125,19 +125,80 @@
                     </article>
                 </section>
                 <section class="ledger-section">
-                    <div class="product-heading">
-                        <div><span class="eyebrow">THE LATEST FROM YOUR ARENA</span>
-                            <h2>Recent Activity</h2>
+                    <div class="activity-insights-layout">
+                        <div class="activity-recent-column">
+                            <div class="product-heading">
+                                <div><span class="eyebrow">THE LATEST FROM YOUR ARENA</span>
+                                    <h2>Recent Activity</h2>
+                                </div>
+                            </div>
+                            <div class="filter-row activity-category-filters" role="group" aria-label="Activity categories">
+                                <button class="filter-chip is-active" type="button" data-recent-filter="all">All</button><button
+                                    class="filter-chip" type="button" data-recent-filter="booking">Bookings</button><button
+                                    class="filter-chip" type="button" data-recent-filter="payment">Payments</button><button
+                                    class="filter-chip" type="button" data-recent-filter="pass">Passes</button><button
+                                    class="filter-chip" type="button" data-recent-filter="session">Sessions</button><button
+                                    class="filter-chip" type="button" data-recent-filter="group">Groups</button>
+                            </div>
+                            <div class="activity-timeline" id="recent-timeline"></div>
+                        </div>
+                        <div class="activity-insights-column">
+                            <aside class="activity-insights" aria-labelledby="activity-insights-title">
+                                <div class="activity-insights-heading">
+                                    <div><span class="eyebrow">AT A GLANCE</span>
+                                        <h3 id="activity-insights-title">Activity Insights</h3>
+                                    </div>
+                                    <span class="insights-demo-label">Demo data</span>
+                                </div>
+                                <div class="insight-row">
+                                    <span class="insight-icon"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i></span>
+                                    <div><h4>Next Session</h4><p>Upcoming session <span>Sample · Oct 8, 2026 · Time not provided</span></p></div>
+                                </div>
+                                <div class="insight-row">
+                                    <span class="insight-icon"><i class="fa-solid fa-ticket" aria-hidden="true"></i></span>
+                                    <div><h4>Pass Balance</h4><p>2 sessions remaining <span>Sample · Validity not provided</span></p></div>
+                                </div>
+                                <div class="insight-row">
+                                    <span class="insight-icon"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></span>
+                                    <div><h4>Latest Payment</h4><p>₹998 · Oct 6, 2026 <span>Sample · Successful</span></p></div>
+                                </div>
+                                <div class="insight-row">
+                                    <span class="insight-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+                                    <div><h4>Your Progress</h4><p>8 sessions completed <span>Sample · Next milestone: 10 sessions</span></p></div>
+                                </div>
+                            </aside>
+                            <section class="activity-milestone" aria-labelledby="next-milestone-heading">
+                                <div class="activity-milestone-heading">
+                                    <span class="eyebrow">YOUR PROGRESS</span>
+                                    <h2 id="next-milestone-heading">Your Next Milestone</h2>
+                                </div>
+                                <article class="milestone-progress-card">
+                                    <div class="milestone-progress-main">
+                                        <span class="milestone-award-icon" aria-hidden="true"><i class="fa-solid fa-trophy"></i></span>
+                                        <div class="milestone-copy">
+                                            <h3>You're on a Roll!</h3>
+                                            <p>Keep playing and unlock your next achievement.</p>
+                                            <span class="milestone-sample-label">Sample progress</span>
+                                        </div>
+                                    </div>
+                                    <div class="milestone-progress-details">
+                                        <div class="milestone-progress-labels">
+                                            <strong><span data-milestone-completed>8</span> / <span data-milestone-target>10</span> Sessions</strong>
+                                            <span data-milestone-percent>80%</span>
+                                        </div>
+                                        <div class="milestone-progress-track" role="progressbar" aria-label="Progress to 10-session milestone" aria-valuemin="0" aria-valuemax="10" aria-valuenow="8" aria-valuetext="8 of 10 sessions completed">
+                                            <span class="milestone-progress-fill" data-milestone-fill></span>
+                                        </div>
+                                        <p class="milestone-remaining"><i class="fa-solid fa-bullseye" aria-hidden="true"></i><span><strong><span data-milestone-remaining>2</span> more sessions</strong> to reach your 10-session milestone.</span></p>
+                                    </div>
+                                    <div class="milestone-progress-footer">
+                                        <p>Keep your momentum going. Book your next session and get closer to your goal.</p>
+                                        <a class="button-primary" href="d3.html" aria-label="Book a Session">Book a Session <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </article>
+                            </section>
                         </div>
                     </div>
-                    <div class="filter-row activity-category-filters" role="group" aria-label="Activity categories">
-                        <button class="filter-chip is-active" type="button" data-recent-filter="all">All</button><button
-                            class="filter-chip" type="button" data-recent-filter="booking">Bookings</button><button
-                            class="filter-chip" type="button" data-recent-filter="payment">Payments</button><button
-                            class="filter-chip" type="button" data-recent-filter="pass">Passes</button><button
-                            class="filter-chip" type="button" data-recent-filter="session">Sessions</button><button
-                            class="filter-chip" type="button" data-recent-filter="group">Groups</button></div>
-                    <div class="activity-timeline" id="recent-timeline"></div>
                 </section>
                 <section class="ledger-section">
                     <div class="product-heading history-controls-heading">
