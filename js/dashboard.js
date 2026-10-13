@@ -302,6 +302,17 @@
       {id:'BR-ACT-2012',title:'Booking cancelled',date:'2026-09-25',time:'1:00 PM',category:'booking',description:'Your session booking was cancelled.',related:'BR-2026-1018',status:'Cancelled',icon:'fa-solid fa-calendar-xmark'},
       {id:'BR-ACT-2008',title:'Refund processed',date:'2026-09-24',time:'3:40 PM',category:'payment',description:'₹499 refund returned to your original payment method.',related:'BR-PAY-1018',status:'Refunded',icon:'fa-solid fa-arrow-rotate-left'}
     ];
+    const completedSessions=Number(activityApp.querySelector('.activity-stats article:nth-child(2) strong')?.textContent)||0;
+    const milestoneTarget=10,progressValue=Math.min(completedSessions,milestoneTarget),progressPercent=Math.round(progressValue/milestoneTarget*100);
+    const progressTrack=activityApp.querySelector('.milestone-progress-track');
+    activityApp.querySelector('[data-milestone-completed]').textContent=completedSessions;
+    activityApp.querySelector('[data-milestone-target]').textContent=milestoneTarget;
+    activityApp.querySelector('[data-milestone-remaining]').textContent=Math.max(0,milestoneTarget-completedSessions);
+    activityApp.querySelector('[data-milestone-percent]').textContent=`${progressPercent}%`;
+    activityApp.querySelector('[data-milestone-fill]').style.width=`${progressPercent}%`;
+    progressTrack.setAttribute('aria-valuemax',milestoneTarget);
+    progressTrack.setAttribute('aria-valuenow',progressValue);
+    progressTrack.setAttribute('aria-valuetext',`${completedSessions} of ${milestoneTarget} sessions completed`);
     const dateText=r=>r.date==='2026-10-07'?`Today, ${r.time}`:r.date==='2026-10-06'?`Yesterday, ${r.time}`:new Date(`${r.date}T12:00:00`).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
     const view=r=>{content.innerHTML=`<span class="modal-kicker">${r.category.toUpperCase()} ACTIVITY</span><h2 id="activity-modal-title">${r.title}</h2><p class="modal-intro">${r.description}</p><div class="modal-details"><div><span>Activity type</span><strong>${r.category}</strong></div><div><span>Date & time</span><strong>${dateText(r)}</strong></div><div><span>Reference ID</span><strong>${r.id}</strong></div><div><span>Related booking/payment</span><strong>${r.related}</strong></div><div><span>Status</span><strong>${r.status}</strong></div></div><button class="button-outline full-button" type="button" data-modal-close>Close</button>`;modal.hidden=false;};
     const recentFilter=f=>{const rows=records.filter(r=>f==='all'||r.category===f);document.getElementById('recent-timeline').innerHTML=rows.slice(0,6).map(r=>`<article class="timeline-item"><span class="timeline-icon"><i class="${r.icon}"></i></span><div class="timeline-copy"><div class="timeline-title"><strong>${r.title}</strong><span class="category-badge">${r.category}</span></div><small>${dateText(r)}</small><p>${r.description}</p><button class="button-link" type="button" data-activity-detail="${r.id}">View Details <i class="fa-solid fa-arrow-right"></i></button></div></article>`).join('')||'<p class="empty-state">No recent activity in this category.</p>';};
